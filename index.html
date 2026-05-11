@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>স্বর্গ ট্রাভেলস</title>
+
+
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+      * {
+        font-family: 'Hind Siliguri', sans-serif;
+      }
+
+
+      body {
+        overflow-x: hidden;
+        background-color: #0a0e1a;
+      }
+
+
+      /* Navbar */
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 1.3rem;
+      }
+
+
+      .navbar .nav-link {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.8rem !important;
+        transition: color 0.3s;
+      }
+
+
+      .navbar .nav-link:hover {
+        color: #fff !important;
+      }
+
+
+      /* Hero */
+      .Hero-section {
+        display: flex;
+        align-items: center;
+      }
+
+
+      .Hero-section h1 {
+        font-size: clamp(1.8rem, 5vw, 3.5rem);
+        line-height: 1.3;
+      }
+
+
+      .Hero-section .badge-pill-custom {
+        font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+        padding: 6px 18px;
+      }
+
+
+      .Hero-section .desc {
+        font-size: clamp(0.9rem, 1.8vw, 1.15rem);
+      }
+
+
+      .Hero-section .button .btn {
+        font-size: 0.9rem;
+        padding: 10px 22px;
+      }
+
+
+      .rating p {
+        font-size: clamp(0.75rem, 1.3vw, 0.9rem);
+        min-width: 80px;
+      }
+
+
+      .rating .fs-4 {
+        font-size: clamp(1rem, 2vw, 1.5rem) !important;
+      }
+
+
+      /* Section title icon */
+      .section-icon {
+        font-size: 2rem;
+        color: #0d6efd;
+      }
+
+
+      .section-divider {
+        color: #242a38;
+        font-size: 1.2rem;
+      }
+
+
+      /* Place cards */
+      .place-card {
+        height: 250px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 1rem;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+
+
+      .place-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      }
+
+
+      .place-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(rgba(25, 27, 28, 0.65), rgba(9, 14, 23, 0.7));
+        z-index: 1;
+        transition: background 0.3s;
+      }
+
+
+      .place-card:hover::before {
+        background: linear-gradient(rgba(13, 110, 253, 0.25), rgba(9, 14, 23, 0.75));
+      }
+
+
+      .place-card .card-content {
+        position: relative;
+        z-index: 2;
+        padding: 2rem 1.2rem 1.2rem;
+        margin-top: 40px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+
+      /* Service cards */
+      .service-card {
+        background-color: #111827;
+        border: 1px solid #242a38;
+        border-radius: 1rem;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        height: 100%;
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+
+      .service-card:hover {
+        transform: translateY(-6px);
+        border-color: #0d6efd;
+        box-shadow: 0 8px 25px rgba(13, 110, 253, 0.15);
+      }
+
+
+      .service-card .material-symbols-outlined {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #0d6efd;
+      }
+
+
+      /* Package cards */
+      .package-card {
+        border-radius: 12px;
+        overflow: hidden;
+        border: none;
+        background-color: #111827;
+        height: 100%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+
+      .package-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      }
+
+
+      .package-card .card-img-top {
+        height: 180px;
+        object-fit: cover;
+      }
+
+
+      .package-card .feature-list li {
+        font-size: 0.9rem;
+        color: #c0c7d4;
+      }
+
+
+      .package-card .dam {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #0d6efd;
+      }
+
+
+      /* Review cards */
+      .review-card {
+        background-color: #111827;
+        border: 1px solid #242a38;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        height: 100%;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+      }
+
+
+      .review-card:hover {
+        transform: translateY(-4px);
+        border-color: #0d6efd;
+      }
+
+
+      .review-card img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+      }
+
+
+      /* Smooth scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+
+
+      /* Mobile adjustments */
+      @media (max-width: 575.98px) {
+        .Hero-section {
+          height: auto !important;
+          min-height: 100vh;
+          padding: 100px 0 40px;
+        }
+
+
+        .rating {
+          gap: 1rem !important;
+        }
+
+
+        .rating p {
+          min-width: auto;
+        }
+
+
+        .place-card {
+          height: 200px;
+        }
+
+
+        .place-card .card-content {
+          margin-top: 20px;
+          padding: 1.5rem 1rem 1rem;
+        }
+
+
+        .place-card h4 {
+          font-size: 1.1rem;
+        }
+
+
+        .place-card p {
+          font-size: 0.8rem;
+        }
+
+
+        .place-card h6 {
+          font-size: 0.85rem;
+        }
+
+
+        .service-card {
+          padding: 1.5rem 1rem;
+        }
+
+
+        .package-card .card-img-top {
+          height: 150px;
+        }
+      }
+
+
+      @media (min-width: 576px) and (max-width: 767.98px) {
+        .Hero-section {
+          height: auto !important;
+          min-height: 90vh;
+          padding: 80px 0 40px;
+        }
+      }
+    </style>
+  </head>
+
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <span class="material-symbols-outlined"
+          style="color: rgb(35, 10, 223); font-size: 1.8rem;">
+          flight
+        </span>
+        <a class="navbar-brand text-light" href="#">স্বর্গ ট্রাভেলস</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link active" href="#"
+                style="color: #a2b4cd !important;">হোম</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"
+                style="color: #a2b4cd !important;">গন্তব্য</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"
+                style="color: #a2b4cd !important;">সেবাসমূহ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"
+                style="color: #a2b4cd !important;">প্যাকেজ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"
+                style="color: #a2b4cd !important;">রিভিউ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"
+                style="color: #a2b4cd !important;">যোগাযোগ</a></li>
+          </ul>
+          <button type="button"
+            class="btn btn-primary btn-sm mt-2 mt-lg-0">বুকিং ফর্ম</button>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <div class="Hero-section"
+      style="background: linear-gradient(rgba(25,27,28,0.6),rgba(9,14,23,0.6)), url('/Image/imgi_1_1080.jpg');
+      background-size: cover; background-repeat: no-repeat; height: 95vh;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-xl-8">
+            <p
+              class="mt-4 mt-md-5 badge-pill-custom d-inline-flex align-items-center"
+              style="background-color: #001a4d; border: 1px solid #003399; border-radius: 50px;
+              padding: 8px 25px; color: white; cursor: pointer;">
+              বিশ্বস্ত ট্রাভেল পার্টনার
+            </p>
+            <h1 class="mt-3">
+              <span class="d-block text-light">আপনার <span
+                  style="color: #0d6efd;">স্বপ্নের</span></span>
+              <span class="d-block text-light"><b>ভ্রমণ শুরু হোক</b></span>
+            </h1>
+            <p class="text-info desc mt-3 mt-md-4">
+              দেশ ও বিদেশের সেরা গন্তব্যে সাশ্রয়ী মূল্যে
+              অসাধারণ ভ্রমণ অভিজ্ঞতা উপহার দিচ্ছে স্বর্গ ট্রাভেলস।
+            </p>
+            <div class="button d-flex flex-wrap gap-3 gap-md-4 mt-3">
+              <a href="#" class="btn btn-primary">প্যাকেজ দেখুন</a>
+              <a href="#" class="btn btn-outline-primary">কল করুন</a>
+            </div>
+            <div
+              class="rating my-4 my-md-5 d-flex flex-wrap gap-3 gap-md-4 text-light">
+              <p class="text-center">
+                <span class="d-block fw-bold">৫০০০+</span>
+                সন্তুষ্ট পর্যটক
+              </p>
+              <p class="text-center">
+                <span class="d-block fw-bold">১২০+</span>
+                গন্তব্যস্থল
+              </p>
+              <p class="text-center">
+                <span class="d-block fw-bold">৮+</span>
+                বছরের অভিজ্ঞতা
+              </p>
+              <p class="text-center">
+                <span class="d-block fw-bold">৪.৯/৫</span>
+                গড় রেটিং
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Place / Destinations -->
+    <div class="place" style="background-color: #0a0e1a;">
+      <div class="container py-4 py-md-5">
+        <!-- Section Header -->
+        <div class="text-center mb-4 mb-md-5">
+          <div class="d-inline-flex align-items-center gap-2 mb-2">
+            <span
+              class="material-symbols-outlined section-icon">location_on</span>
+            <p class="mb-0 fw-bold text-light">জনপ্রিয় গন্তব্য</p>
+          </div>
+          <h2 class="fs-3 fs-md-4 fs-lg-5 text-light"><b>সেরা ভ্রমণ
+              গন্তব্যস্থল</b></h2>
+          <p class="fs-6 text-light mt-2">বিশ্বের অন্যতম সুন্দর স্থানগুলোতে
+            আমাদের বিশেষ প্যাকেজ নিয়ে ঘুরে আসুন</p>
+          <span
+            class="material-symbols-outlined section-divider">maximize</span>
+        </div>
+
+
+        <!-- Row 1 -->
+        <div class="row g-3 g-md-4">
+          <div class="col-6  mb-5  col-md-4">
+            <div class="place-card "
+              style="background-image: url(https://artifacts-cdn.chatglm.site/https://picsum.photos/seed/coxsbazar-sea/600/400.jpg); padding-bottom: 30px;">
+              <div class="card-content">
+                <h4 class="text-light"><b>কক্সবাজার</b></h4>
+                <p class="text-light mb-3"><b>বিশ্বের দীর্ঘতম প্রাকৃতিক সমুদ্র
+                    সৈকত</b></p>
+                <h6 class="text-light"><b>৳৫,৯৯০ থেকে</b></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="place-card"
+              style="background-image: url(https://artifacts-cdn.chatglm.site/https://picsum.photos/seed/sajek-valley/600/400.jpg); padding-bottom: 30px; ">
+              <div class="card-content">
+                <h4 class="text-light"><b>সাজেক ভ্যালি</b></h4>
+                <p class="text-light mb-1"><b>মেঘের দেশে অসাধারণ প্রকৃতি</b></p>
+                <h6 class="text-light"><b>৳৪,৫০০ থেকে</b></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="place-card"
+              style="background-image: url(https://artifacts-cdn.chatglm.site/https://picsum.photos/seed/sundarban-forest/600/400.jpg); padding-bottom: 30px;">
+              <div class="card-content">
+                <h4 class="text-light"><b>সুন্দরবন</b></h4>
+                <p class="text-light mb-1"><b>বিশ্বের বৃহত্তম ম্যানগ্রোভ
+                    বন</b></p>
+                <h6 class="text-light"><b>৳৬,৫০০ থেকে</b></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Row 2 -->
+        <div class="row g-3 g-md-4 mt-1">
+          <div class="col-6 col-md-4">
+            <div class="place-card"
+              style="background-image: url(https://artifacts-cdn.chatglm.site/https://picsum.photos/seed/thailand-temple/600/400.jpg); padding-bottom: 30px; ">
+              <div class="card-content">
+                <h4 class="text-light"><b>থাইল্যান্ড</b></h4>
+                <p class="text-light mb-1"><b>সৈকত, মন্দির ও স্ট্রিট ফুড</b></p>
+                <h6 class="text-light"><b>৳৪৫,০০০ থেকে</b></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="place-card"
+              style="background-image: url(https://artifacts-cdn.chatglm.site/https://picsum.photos/seed/maldives-water/600/400.jpg);padding-bottom: 30px; ">
+              <div class="card-content">
+                <h4 class="text-light"><b>মালদ্বীপ</b></h4>
+                <p class="text-light mb-1"><b>ক্রিস্টাল ক্লিয়ার নীল
+                    পানি</b></p>
+                <h6 class="text-light"><b>৳৮৫,০০০ থেকে</b></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="place-card"
+              style="background-image: url(https://artifacts-cdn.chatglm.site/https://picsum.photos/seed/bandarban-hill/600/400.jpg);padding-bottom: 30px;">
+              <div class="card-content">
+                <h4 class="text-light"><b>বান্দরবান</b></h4>
+                <p class="text-light mb-1"><b>পাহাড়, ঝর্ণা ও জনজাতির
+                    সংস্কৃতি</b></p>
+                <h6 class="text-light"><b>৳৩,৮০০ থেকে</b></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Why We Are Best / Services -->
+    <div class="best-why" style="background-color: #0a0e1a;">
+      <div class="container py-4 py-md-5">
+        <!-- Section Header -->
+        <div class="text-center mb-4 mb-md-5">
+          <div class="d-inline-flex align-items-center gap-2 mb-2">
+            <span class="material-symbols-outlined section-icon">diamond</span>
+            <p class="mb-0 fw-bold text-light">কেন আমরাই সেরা</p>
+          </div>
+          <h2 class="fs-3 fs-md-4 fs-lg-5 text-light"><b>আমাদের বিশেষ
+              সেবাসমূহ</b></h2>
+          <p class="fs-6 text-light mt-2">আমরা প্রতিটি ভ্রমণকে স্মরণীয় করে
+            তুলতে প্রতিশ্রুতিবদ্ধ</p>
+          <span
+            class="material-symbols-outlined section-divider">maximize</span>
+        </div>
+
+
+        <!-- Service Cards Row 1 -->
+        <div class="row g-3 g-md-4">
+          <div class="col-6 col-md-3">
+            <div class="service-card">
+              <span class="material-symbols-outlined">security</span>
+              <h5 class="card-title text-light">নিরাপদ ভ্রমণ</h5>
+              <p class="card-text text-secondary mb-0"
+                style="font-size: 0.9rem;">প্রতিটি ট্যুরে সম্পূর্ণ নিরাপত্তা
+                ব্যবস্থা ও ইন্স্যুরেন্স সুবিধা</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="service-card">
+              <span
+                class="material-symbols-outlined">currency_rupee_circle</span>
+              <h5 class="card-title text-light">সাশ্রয়ী মূল্য</h5>
+              <p class="card-text text-secondary mb-0"
+                style="font-size: 0.9rem;">সেরা মানের সেবা সবচেয়ে কম খরচে, কোনো
+                লুকানো চার্জ নেই</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="service-card">
+              <span class="material-symbols-outlined">support_agent</span>
+              <h5 class="card-title text-light">২৪/৭ সাপোর্ট</h5>
+              <p class="card-text text-secondary mb-0"
+                style="font-size: 0.9rem;">যেকোনো সময় আমাদের সাপোর্ট টিমের সাথে
+                যোগাযোগ করুন</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="service-card">
+              <span class="material-symbols-outlined">account_circle</span>
+              <h5 class="card-title text-light">অভিজ্ঞ গাইড</h5>
+              <p class="card-text text-secondary mb-0"
+                style="font-size: 0.9rem;">প্রশিক্ষিত ও অভিজ্ঞ ট্যুর গাইড দিয়ে
+                প্রতিটি ট্যুর পরিচালনা</p>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Service Cards Row 2 -->
+        <div class="row g-3 g-md-4 mt-1">
+          <div class="col-6 col-md-3">
+            <div class="service-card">
+              <span class="material-symbols-outlined">directions_car</span>
+              <h5 class="card-title text-light">পরিবহন ব্যবস্থা</h5>
+              <p class="card-text text-secondary mb-0"
+                style="font-size: 0.9rem;">এসি বাস, মাইক্রোবাস ও প্রাইভেট গাড়ি
+                সুবিধা</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="service-card">
+              <span class="material-symbols-outlined">photo_camera</span>
+              <h5 class="card-title text-light">ফটোগ্রাফি</h5>
+              <p class="card-text text-secondary mb-0"
+                style="font-size: 0.9rem;">প্রফেশনাল ফটোগ্রাফার দিয়ে আপনার
+                স্মৃতি ধারণ</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="service-card">
+              <span class="material-symbols-outlined">autorenew</span>
+              <h5 class="card-title text-light">ফ্লেক্সিবল</h5>
+              <p class="card-text text-secondary mb-0"
+                style="font-size: 0.9rem;">আপনার সুবিধামতো প্যাকেজ কাস্টমাইজ
+                করুন</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="service-card">
+              <span class="material-symbols-outlined">night_shelter</span>
+              <h5 class="card-title text-light">হোটেল বুকিং</h5>
+              <p class="card-text text-secondary mb-0"
+                style="font-size: 0.9rem;">সেরা হোটেল ও রিসোর্টে আরামদায়ক থাকার
+                ব্যবস্থা</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Tour Packages -->
+    <div style="background-color: #0a0e1a;">
+      <div class="container py-4 py-md-5">
+        <!-- Section Header -->
+        <div class="text-center mb-4 mb-md-5">
+          <div class="d-inline-flex align-items-center gap-2 mb-2">
+            <span class="material-symbols-outlined section-icon">luggage</span>
+            <p class="mb-0 fw-bold text-light">ট্যুর প্যাকেজ</p>
+          </div>
+          <h2 class="fs-3 fs-md-4 fs-lg-5 text-light"><b>জনপ্রিয় ট্যুর
+              প্যাকেজসমূহ</b></h2>
+          <p class="fs-6 text-light mt-2">আপনার বাজেট ও সময় অনুযায়ী সেরা
+            প্যাকেজ বেছে নিন</p>
+          <span
+            class="material-symbols-outlined section-divider">maximize</span>
+        </div>
+
+
+        <!-- Package Cards -->
+        <div class="row g-3 g-md-4">
+          <!-- Card 1 -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card package-card text-light">
+              <img
+                src="https://artifacts-cdn.chatglm.site/https://picsum.photos/seed/rangamati-lake/600/300.jpg"
+                class="card-img-top" alt="রাঙ্গামাটি">
+              <div class="card-body border-bottom border-secondary">
+                <span class="badge rounded-pill mb-3"
+                  style="background-color: #102447; font-weight: 500; padding: 6px 12px;">
+                  সবচেয়ে জনপ্রিয়
+                </span>
+                <h4 class="card-title mb-3"><b>রাঙ্গামাটি ট্যুর</b></h4>
+                <div class="d-flex gap-3 mb-3 text-secondary"
+                  style="font-size: 0.85rem;">
+                  <div class="d-flex align-items-center gap-1">
+                    <span class="material-symbols-outlined"
+                      style="font-size: 18px;">timer</span>
+                    <span>৩ দিন ২ রাত</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-1">
+                    <span class="material-symbols-outlined"
+                      style="font-size: 18px;">groups_2</span>
+                    <span>সর্বোচ্চ ১৫ জন</span>
+                  </div>
+                </div>
+                <ul class="feature-list p-0"
+                  style="list-style: none; margin-bottom: 0;">
+                  <li class="d-flex align-items-center gap-2 mb-2">✔️ এসি বাস
+                    টিকেট</li>
+                  <li class="d-flex align-items-center gap-2 mb-2">✔️ রিসোর্টে
+                    থাকা</li>
+                  <li class="d-flex align-items-center gap-2 mb-2">✔️ নৌকা
+                    ভ্রমণ</li>
+                  <li class="d-flex align-items-center gap-2 mb-2">✔️ ব্রেকফাস্ট
+                    ও ডিনার</li>
+                  <li class="d-flex align-items-center gap-2">✔️ অভিজ্ঞ
+                    গাইড</li>
+                </ul>
+              </div>
+              <div
+                class="dam d-flex justify-content-between align-items-center px-3 py-3">
+                <p class="mb-0">৳৪,৫০০/জন</p>
+                <button type="button" class="btn btn-primary btn-sm">বুক
+                  করুন</button>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Card 2 -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card package-card text-light">
+              <img
+                src="https://artifacts-cdn.chatglm.site/https://picsum.photos/seed/coxsbazar-beach/600/300.jpg"
+                class="card-img-top" alt="কক্সবাজার">
+              <div class="card-body border-bottom border-secondary">
+                <span class="badge rounded-pill mb-3"
+                  style="background-color: #102447; font-weight: 500; padding: 6px 12px;">
+                  সবচেয়ে জনপ্রিয়
+                </span>
+                <h4 class="card-title mb-3"><b>কক্সবাজার প্রিমিয়াম</b></h4>
+                <div class="d-flex gap-3 mb-3 text-secondary"
+                  style="font-size: 0.85rem;">
+                  <div class="d-flex align-items-center gap-1">
+                    <span class="material-symbols-outlined"
+                      style="font-size: 18px;">timer</span>
+                    <span>৪ দিন ৩ রাত</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-1">
+                    <span class="material-symbols-outlined"
+                      style="font-size: 18px;">groups_2</span>
+                    <span>সর্বোচ্চ ২০ জন</span>
+                  </div>
+                </div>
+                <ul class="feature-list p-0"
+                  style="list-style: none; margin-bottom: 0;">
+                  <li class="d-flex align-items-center gap-2 mb-2">✔️ এসি বাস
+                    টিকেট</li>
+                  <li class="d-flex align-items-center gap-2 mb-2">✔️ সীফ্রন্ট
+                    হোটেল</li>
+                  <li class="d-flex align-items-center gap-2 mb-2">✔️ ইনানী বিচ
+                    ভ্রমণ</li>
+                  <li class="d-flex align-items-center gap-2 mb-2">✔️ ব্রেকফাস্ট
+                    ও ডিনার</li>
+                  <li class="d-flex align-items-center gap-2">✔️ অভিজ্ঞ
+                    গাইড</li>
+                </ul>
+              </div>
+              <div
+                class="dam d-flex justify-content-between align-items-center px-3 py-3">
+                <p class="mb-0">৳১২,৫০০/জন</p>
+                <button type="button" class="btn btn-primary btn-sm">বুক
+                  করুন</button>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Card 3 -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card package-card text-light">
+              <img
+                src="https://artifacts-cdn.chatglm.site/https://picsum.photos/seed/thailand-tour/600/300.jpg"
+                class="card-img-top" alt="থাইল্যান্ড">
+              <div class="card-body border-bottom border-secondary">
+                <span class="badge rounded-pill mb-3"
+                  style="background-color: #0d6efd; font-weight: 500; padding: 6px 12px;">
+                  বেস্ট সেলার
+                </span>
+                <h4 class="card-title mb-3"><b>থাইল্যান্ড এক্সক্লুসিভ</b></h4>
+                <div class="d-flex gap-3 mb-3 text-secondary"
+                  style="font-size: 0.85rem;">
+                  <div class="d-flex align-items-center gap-1">
+                    <span class="material-symbols-outlined"
+                      style="font-size: 18px;">timer</span>
+                    <span>৫ দিন ৪ রাত</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-1">
+                    <span class="material-symbols-outlined"
+                      style="font-size: 18px;">groups_2</span>
+                    <span>সর্বোচ্চ ১০ জন</span>
+                  </div>
+                </div>
+                <ul class="feature-list p-0"
+                  style="list-style: none; margin-bottom: 0;">
+                  <li class="d-flex align-items-center gap-2 mb-2">✔️ রিটার্ন
+                    ফ্লাইট</li>
+                  <li class="d-flex align-items-center gap-2 mb-2">✔️ ৫ তারকা
+                    হোটেল</li>
+                  <li class="d-flex align-items-center gap-2 mb-2">✔️ ইন্দেশীয়া
+                    পয়েন্ট</li>
+                  <li class="d-flex align-items-center gap-2 mb-2">✔️ সমুদ্র
+                    স্নান</li>
+                  <li class="d-flex align-items-center gap-2">✔️ সব খাবার
+                    সহ</li>
+                </ul>
+              </div>
+              <div
+                class="dam d-flex justify-content-between align-items-center px-3 py-3">
+                <p class="mb-0">৳৪৫,০০০/জন</p>
+                <button type="button" class="btn btn-primary btn-sm">বুক
+                  করুন</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Reviews / Testimonials -->
+    <div style="background-color: #0a0e1a;">
+      <div class="container py-4 py-md-5">
+        <!-- Section Header -->
+        <div class="text-center mb-4 mb-md-5">
+          <div class="d-inline-flex align-items-center gap-2 mb-2">
+            <span class="material-symbols-outlined section-icon">diamond</span>
+            <p class="mb-0 fw-bold text-light">ক্রেতাদের মতামত</p>
+          </div>
+          <h2 class="fs-3 fs-md-4 fs-lg-5 text-light"><b>আমাদের পর্যটকরা যা
+              বলেন</b></h2>
+          <p class="fs-6 text-light mt-2">হাজারো সন্তুষ্ট পর্যটকের বিশ্বাস অর্জন
+            করেছি আমরা</p>
+          <span
+            class="material-symbols-outlined section-divider">maximize</span>
+        </div>
+
+
+        <!-- Review Cards -->
+        <div class="row g-3 g-md-4">
+          <div class="col-12 col-md-4">
+            <div class="review-card">
+              <div class="mb-2">⭐⭐⭐⭐⭐</div>
+              <p class="card-text text-secondary mb-3"
+                style="font-size: 0.9rem;">
+                কক্সবাজার ট্যুরটা অসাধারণ ছিল! হোটেল, খাবার, পরিবহন — সবকিছু
+                চমৎকার ছিল। আবার অবশ্যই স্বর্গ ট্রাভেলসের সাথে যাব।
+              </p>
+              <div class="people d-flex align-items-center gap-3">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfyMLVzdH5ftuNPag8lKLXWMfvtd2n3PPm0Q&s"
+                  alt class="rounded-circle">
+                <div>
+                  <h6 class="mb-0 text-light">আব্দুর রহিম</h6>
+                  <small class="text-secondary">কক্সবাজার ট্যুর</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="review-card">
+              <div class="mb-2">⭐⭐⭐⭐⭐</div>
+              <p class="card-text text-secondary mb-3"
+                style="font-size: 0.9rem;">
+                সাজেক ভ্যালি ট্যুরটা সত্যিই অবিস্মরণীয় ছিল। মেঘের মাঝে ঘুরে
+                বেড়ানোর অনুভূতি এক্সক্লুসিভ! গাইড ভাই অনেক ভালো ছিলেন।
+              </p>
+              <div class="people d-flex align-items-center gap-3">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfyMLVzdH5ftuNPag8lKLXWMfvtd2n3PPm0Q&s"
+                  alt class="rounded-circle">
+                <div>
+                  <h6 class="mb-0 text-light">ফাতেমা আক্তার</h6>
+                  <small class="text-secondary">সাজেক ট্যুর</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="review-card">
+              <div class="mb-2">⭐⭐⭐⭐⭐</div>
+              <p class="card-text text-secondary mb-3"
+                style="font-size: 0.9rem;">
+                থাইল্যান্ড প্যাকেজটা দারুণ ছিল! ফ্লাইট, হোটেল, সাইটসিয়িং — সব
+                ঝামেলামুক্ত। ভ্যালু ফর মানি পেয়েছি।
+              </p>
+              <div class="people d-flex align-items-center gap-3">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfyMLVzdH5ftuNPag8lKLXWMfvtd2n3PPm0Q&s"
+                  alt class="rounded-circle">
+                <div>
+                  <h6 class="mb-0 text-light">তানভীর ইসলাম</h6>
+                  <small class="text-secondary">থাইল্যান্ড ট্যুর</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- plan -->
+       <div class="plan p-5  " style="background-color:#122b56;">
+          <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8 mt-4">
+                    <h6 class="fs-1 fw-bold text-light">আজই আপনার ভ্রমণ পরিকল্পনা শুরু করুন!</h6>
+                    <p class="fs-5 mb-0 text-info">গ্রুপ বুকিংয়ে ২০% ছাড় পান। সীমিত সময়ের অফার!</p>
+                </div>
+         <div class="col-md-4 text-md-end text-center mt-4 mb-4">
+                    <input class="btn btn-primary fs-5 px-4 py-2" type="submit" value="এখনই বুকিং করুন">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Booking -->
+      <div class="text-center mt-4 mb-4 mb-md-5">
+          <div class="d-inline-flex align-items-center gap-2 mb-2">
+            <span class="material-symbols-outlined section-icon">luggage</span>
+            <p class="mb-0 fw-bold text-light">যোগাযোগ</p>
+          </div>
+          <h2 class="fs-3 fs-md-4 fs-lg-5 text-light"><b>বুকিং ও যোগাযোগ</b></h2>
+          <p class="fs-6 text-light mt-2">আপনার তথ্য দিন, আমরা দ্রুত যোগাযোগ করব</p>
+          <span
+            class="material-symbols-outlined section-divider">maximize</span>
+        </div>
+        <!-- From -->
+         <div class="container mt-5">
+<div class="container py-5">
+    <div class="row g-4 justify-content-center align-items-start">
+        <div class="col-lg-5 col-md-6">
+            <div class="contact-details text-light">
+                <div class="contact-card p-3 mb-3 d-flex align-items-center border">
+                    <div class="icon-box me-3">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <div class="info-title">অফিস ঠিকানা</div>
+                        <div class="info-text">৪২, গুলশান এভিনিউ, ঢাকা-১২১২</div>
+                    </div>
+                </div>
+                <div class="contact-card p-3 mb-3 d-flex align-items-center border ">
+                    <div class="icon-box me-3">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                        <div class="info-title">ফোন নম্বর</div>
+                        <div class="info-text">+880 1712-345678</div>
+                    </div>
+                </div>
+                <div class="contact-card p-3 mb-3 d-flex align-items-center border ">
+                    <div class="icon-box me-3">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <div class="info-title">ইমেইল</div>
+                        <div class="info-text">info@sworgotravels.com</div>
+                    </div>
+                </div>
+                <div class="contact-card p-3 mb-3 d-flex align-items-center border ">
+                    <div class="icon-box me-3">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <div class="info-title">অফিস সময়</div>
+                        <div class="info-text">শনিবার - বৃহস্পতিবার, সকাল ৯টা - রাত ৯টা</div>
+                    </div>
+                </div>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28711.99640245263!2d88.99821691850642!3d25.902385294848468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e3468187e6bc17%3A0x4b6340a5f72aa2b1!2sKishoreganj!5e0!3m2!1sen!2sbd!4v1777619193806!5m2!1sen!2sbd" width="520" height="190" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded" ></iframe>
+            </div>
+        </div>
+        <!-- Booking Form -->
+      <div class="col-lg-5 col-md-8 mx-auto">
+    <div class="border-0 p-4 shadow-lg rounded text-light" style="background: #111827;">
+        <h3 class="text-center mb-4">বুকিং ফর্ম</h3>
+        <form>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="name" class="form-label">আপনার নাম *</label>
+                    <input type="text" class="form-control" id="name" placeholder="আপনার নাম লিখুন" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="phone" class="form-label">মোবাইল নম্বর *</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="017**********" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="email" class="form-label">ইমেইল</label>
+                    <input type="email" class="form-control" id="email" placeholder="example@gmail.com">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="place" class="form-label">গন্তব্য বেছে নিন *</label>
+                    <select class="form-select" id="place" required>
+                        <option value="" selected disabled>সিলেক্ট করুন</option>
+                        <option value="sundarban">সুন্দরবন</option>
+                        <option value="coxsbazar">কক্সবাজার</option>
+                        <option value="sajek">সাজেক ভ্যালি</option>
+                        <option value="rangamati">রাঙ্গামাটি</option>
+                        <option value="bandarban">বান্দরবান</option>
+                        <option value="thailand">থাইল্যান্ড</option>
+                        <option value="maldives">মালদ্বীপ</option>
+                        <option value="others">অন্যান্য</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="guests" class="form-label">কতজন যাবেন? *</label>
+                <input type="number" class="form-control" id="guests" placeholder="যেমন: ২" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">বিশেষ প্রয়োজনীয়তা</label>
+                <textarea class="form-control" id="message" placeholder="কিছু জানাতে চাইলে লিখুন..." rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">বুকিং রিকোয়েস্ট পাঠান</button>
+           
+        </form>
+    </div>
+</div>
+    </div>
+</div>
+</div>
+<!-- Footer -->
+ <!-- FOOTER -->
+    <footer class="footer-minimal">
+        <div class="container">
+            <div class="row g-4 text-light  ">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="mb-3 fw-bold" style="letter-spacing:-0.5px;">স্বর্গ ট্রাভেলস<span style="color:var(--accent)">.</span></h5>
+                    <p style="color:var(--muted); font-size:0.9rem; line-height:1.7;">
+                       বাংলাদেশের অন্যতম বিশ্বস্ত ট্রাভেল এজেন্সি। দেশ ও বিদেশের সেরা গন্তব্যে আপনার স্বপ্নের ভ্রমণ বাস্তবায়ন করছি আমরা।
+                    </p>
+                    <div class="d-flex gap-2 mt-3">
+                        <a href="#" class="social-icon"><i class="bi bi-twitter-x">twitter</i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin-in">linkedin</i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram">instagram</i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-github">github</i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6>দ্রুত লিংক</h6>
+                    <a style="text-decoration: none;" href="#">হোম</a><br>
+                    <a style="text-decoration: none;"  href="#">গন্তব্য</a><br>
+                    <a style="text-decoration: none;" href="#">সেবাসমূহ</a><br>
+                    <a style="text-decoration: none;"href="#">প্যাকেজ</a><br>
+                    <a style="text-decoration: none;"href="#">রিভিউ</a><br>
+                    <a style="text-decoration: none;"href="#">যোগাযোগ</a><br>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6>জনপ্রিয় গন্তব্য</h6>
+                    <a style="text-decoration: none;"  href="#">কক্সবাজার</a><br>
+                    <a style="text-decoration: none;"href="#">সাজেক ভ্যালি</a><br>
+                    <a style="text-decoration: none;" href="#">রাঙ্গামাটি</a><br>
+                    <a style="text-decoration: none;" href="#">বান্দরবান</a><br>
+                    <a style="text-decoration: none;" href="#">থাইল্যান্ড</a><br>
+                    <a style="text-decoration: none;" href="#">মালদ্বীপ</a><br>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6>নিউজলেটার</h6>
+                    <p style="color:var(--muted); font-size:0.85rem; margin-bottom:1rem;">সর্বশেষ অফার ও প্যাকেজ খবর পেতে সাবস্ক্রাইব করুন</p>
+                    <div class="footer-newsletter d-flex">
+                        <input type="email" placeholder="আপনার ইমেইল">
+                        <button><i class="bi bi-send"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class=" d-flex flex-wrap justify-content-between text-light ">
+                <small style="color:var(--muted);">© ২০২৫ স্বর্গ ট্রাভেলস। সর্বস্বত্ব সংরক্ষিত।</small>
+                <small style="color:var(--muted);">Made with <i class="bi bi-heart-fill" style="color:var(--accent); font-size:0.75rem;"></i>Avijit</small>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"></script>
+
+
+  </body>
+
+
+</html>
+
